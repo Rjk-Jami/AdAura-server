@@ -132,6 +132,11 @@ app.get('/updateAds/:id', verifyJWT,async (req,res)=>{
   console.log(ads)
   res.send(ads)
 })
+
+app.get('/ads', verifyJWT, async(req,res)=>{
+  const result = await adsCollection.find().toArray()
+  res.send(result)
+})
 app.patch('/updateAds/:id',verifyJWT, async (req, res) => {
   const id = req.params.id
   const updateData = req.body
