@@ -133,7 +133,7 @@ app.get('/updateAds/:id', verifyJWT,async (req,res)=>{
   res.send(ads)
 })
 
-app.get('/ads', verifyJWT, async(req,res)=>{
+app.get('/ads', async(req,res)=>{
   const result = await adsCollection.find().toArray()
   res.send(result)
 })
